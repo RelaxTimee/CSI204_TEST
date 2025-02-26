@@ -1,0 +1,170 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark Background */
+    color: #f0f0f0; /* Light Text Color */
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    color: #FFD700; /* Gold Color for Luxury Look */
+    margin-top: 30px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* Section Styling */
+.section {
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #1f1f1f; /* Dark Section Background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+    color: #FFD700; /* Gold Color */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Form Inputs & Buttons */
+input, select, button {
+    padding: 10px 12px;
+    font-size: 1rem;
+    margin: 10px 0;
+    border: 2px solid #444;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #333; /* Dark Background for Inputs */
+    color: #f0f0f0; /* Light Text for Inputs */
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, button:focus {
+    outline: none;
+    border-color: #FFD700; /* Gold Border on Focus */
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* To-Do List Styling */
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+li {
+    padding: 12px;
+    background-color: #1a1a1a; /* Dark Background for List Items */
+    border: 1px solid #444;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #333; /* Slightly Lighter Dark on Hover */
+}
+
+/* Pagination Buttons */
+button {
+    background-color: #FFD700; /* Gold Color for Buttons */
+    color: #121212; /* Dark Text Color */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffcc00; /* Lighter Gold on Hover */
+}
+
+#prev-btn, #next-btn {
+    width: 48%;
+    margin: 10px 1%;
+}
+
+#prev-btn:disabled, #next-btn:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+/* Select Dropdown */
+#items-per-page {
+    width: auto;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* GPA Result and User Data */
+#lottery-number, #gpa-result, #result {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+#lottery-number, #result {
+    font-weight: bold;
+    color: #FFD700; /* Gold Color for Results */
+}
+
+/* User Data Styling */
+#user-data {
+    margin-top: 20px;
+}
+
+#user-data div {
+    background-color: #2c2c2c; /* Slightly Lighter Dark Background */
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Small Screen Responsiveness */
+@media (max-width: 768px) {
+    .section {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input, select, button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    #prev-btn, #next-btn {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .section {
+        padding: 10px;
+    }
+
+    #prev-btn, #next-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
