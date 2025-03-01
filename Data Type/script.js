@@ -25,7 +25,7 @@ fruits[0] = "Grape"; // แก้ไข Apple → Grape
 
 console.log(fruits);
 
-// 2 Dictionary / Object → เก็บค่าข้อมูลนักเรียน
+// 2 Dictionary / Object → เก็บค่าข้อมูล"อ้Tom
 let student = {
     name: "Tom",
     age: 20,

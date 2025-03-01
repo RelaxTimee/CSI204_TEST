@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Handling and Form Validation</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <h1>Change Background Color</h1>
-    <button onclick="changeColor()">Click Me to Change Background</button>
-    <!-- onclick -->
-    <h1>Event Handling Example</h1>
-    <button onclick="alert('Button clicked!')">Click Me for Alert</button>
-    <br><br>
-    <!-- onmouseover -->
-    <input type="text" onmouseover="this.style.backgroundColor='yellow'" onmouseout="this.style.backgroundColor=''" placeholder="Hover over me">
-    <br><br>
-    <!-- onkeyup -->
-    <input type="text" onkeyup="displayText()"> 
-    <p id="output"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Form & Event Handling</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Change Background Color</h1>
+      <button onclick="changeColor()">Click Me to Change Background</button>
 
-    <h1>Form Validation</h1>
-    <form id="myForm">
-        <input type="text" id="name" placeholder="Enter your name" required><br><br>
-        <input type="email" id="email" placeholder="Enter your email" required><br><br>
-        <button type="button" onclick="validateForm()">Submit</button>
-    </form>
-    <p id="validationMessage"></p>
+      <!-- ปุ่มใหม่: เปลี่ยนสีพื้นหลังอัตโนมัติ -->
+      <div class="autoChange">
+        <button id="autoChangeBtn" onclick="toggleAutoChange()">
+          Auto Change Background
+        </button>
+      </div>
+      <h1 class="title">Event Handling Example</h1>
+      <button onclick="alert('Button clicked!')">Click Me for Alert</button>
+
+      <input
+        type="text"
+        onmouseover="this.style.backgroundColor='yellow'"
+        onmouseout="this.style.backgroundColor=''"
+        placeholder="Hover over me"
+      />
+
+      <input
+        type="text"
+        id="textInput"
+        onkeyup="displayText()"
+        placeholder="Type something"
+      />
+      <p id="output"></p>
+
+      <h1 class="title">Form Validation</h1>
+      <form id="myForm">
+        <label for="name">ชื่อ:</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <br /><br />
+
+        <label for="email">อีเมล:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+        <br /><br />
+
+        <button
+          type="button"
+          onclick="validateForm()"
+          onmouseover="this.style.backgroundColor='#27ae60'"
+          onmouseout="this.style.backgroundColor=''"
+        >
+          Submit
+        </button>
+      </form>
+      <p id="validationMessage"></p>
+    </div>
 
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

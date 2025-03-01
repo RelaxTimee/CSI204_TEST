@@ -42,18 +42,27 @@ function printNumbers() {
 }
 
 // Sorting Algorithm (Bubble Sort Example)
-function sortNumbers() {
-    let numbers = [];
-    for (let i = 0; i < 5; i++) {
-        numbers.push(Math.floor(Math.random() * 100) + 1);
+
+    function sortNumbers() {
+        let numbers = [];
+        for (let i = 0; i < 100; i++) {
+            numbers.push(Math.floor(Math.random() * 100) + 1);
+        }
+        console.log("Before sorting:", numbers);
+    
+        // Bubble Sort Algorithm
+        for (let i = 0; i < numbers.length - 1; i++) {
+            for (let j = 0; j < numbers.length - 1 - i; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    [numbers[j], numbers[j + 1]] = [numbers[j + 1], numbers[j]]; // Swap
+                }
+            }
+        }
+    
+        document.getElementById("sortResult").innerHTML = `✅ Sorted Numbers: ${numbers.join(", ")}`;
+        console.log("After sorting:", numbers);
     }
-    console.log("Before sorting:", numbers);
     
-    numbers.sort((a, b) => a - b);
-    
-    document.getElementById("sortResult").innerHTML = `✅ Sorted Numbers: ${numbers.join(", ")}`;
-    console.log("After sorting:", numbers);
-}
 
 // Recursive Algorithm (Factorial)
 function factorial(n) {
@@ -61,10 +70,30 @@ function factorial(n) {
     return n * factorial(n - 1);
 }
 
+// ฟังก์ชันคำนวณค่าแฟกทอเรียล
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1; // 0! = 1 และ 1! = 1
+    } else {
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}
+
+// ฟังก์ชันเพื่อแสดงผลลัพธ์
 function showFactorial() {
-    let result = factorial(5);
-    document.getElementById("factorialResult").innerHTML = `✅ Factorial of 5 is: ${result}`;
-    console.log("Factorial of 5:", result);
+    let inputNumber = parseInt(document.getElementById("factorialInput").value);
+    
+    if (isNaN(inputNumber) || inputNumber < 0) {
+        document.getElementById("factorialResult").innerHTML = "❌ Please enter a valid positive number!";
+        return;
+    }
+
+    let result = factorial(inputNumber);
+    document.getElementById("factorialResult").innerHTML = `✅ Factorial of ${inputNumber} is: ${result}`;
 }
 
 // Recursive Algorithm (Fibonacci)
@@ -73,11 +102,6 @@ function fibonacci(n) {
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-function showFibonacci() {
-    let result = fibonacci(6);
-    document.getElementById("fibonacciResult").innerHTML = `✅ Fibonacci of 6 is: ${result}`;
-    console.log("Fibonacci of 6:", result);
-}
 
 // Debugging & Error Handling Example (Add Numbers)
 function addNumbers(a, b) {
@@ -87,44 +111,74 @@ function addNumbers(a, b) {
 }
 
 // Error Handling Example (Divide Numbers)
-function divideNumbers(a, b) {
-    try {
-        console.log(`Dividing: ${a} / ${b}`);
-        if (b === 0) {
-            throw new Error("❌ Cannot divide by zero!");
-        }
-        let result = a / b;
-        console.log("✅ Result:", result);
-        return result;
-    } catch (error) {
-        console.error("⚠️ Error:", error.message);
-        alert(error.message);
-    }
-}
-
-function debugExample() {
-    let a = parseFloat(document.getElementById("num1").value);
-    let b = parseFloat(document.getElementById("num2").value);
+function fibonacci(n) {
+    if (n <= 0) return 0;
+    if (n === 1) return 1;
     
-    debugger; // ใช้ Debugger หยุดเพื่อตรวจสอบค่า
-    console.log("a =", a, "b =", b);
-
-    let sum = a + b;
-    document.getElementById("result").innerText = "Sum: " + sum;
-    console.log("Sum:", sum);
+    let a = 0, b = 1, temp;
+    for (let i = 2; i <= n; i++) {
+        temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
 }
 
+function fibonacci(n) {
+    if (n <= 0) return 0;
+    if (n === 1) return 1;
+    
+    let a = 0, b = 1, temp;
+    for (let i = 2; i <= n; i++) {
+        temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
+}
+
+function showFibonacci() {
+    let inputNumber = parseInt(document.getElementById("fibonacciInput").value);
+    
+    if (isNaN(inputNumber) || inputNumber < 0) {
+        document.getElementById("fibonacciResult").innerHTML = "❌ Please enter a valid positive number!";
+        return;
+    }
+
+    let result = fibonacci(inputNumber);
+    document.getElementById("fibonacciResult").innerHTML = `✅ Fibonacci of ${inputNumber} is: ${result}`;
+}
+
+// ฟังก์ชัน Debugging Example: การหาผลบวก
+function debugExample() {
+    let num1 = parseFloat(document.getElementById("num1").value);
+    let num2 = parseFloat(document.getElementById("num2").value);
+
+    // ใช้ console.log() เพื่อช่วยในการดีบั๊ก
+    console.log(`num1: ${num1}, num2: ${num2}`);
+
+    let sum = num1 + num2;
+
+    // แสดงผลลัพธ์
+    document.getElementById("result").innerText = `Sum: ${sum}`;
+}
+
+// ฟังก์ชัน Error Handling Example: การหารตัวเลขพร้อม try-catch
 function errorHandlingExample() {
-    let a = parseFloat(document.getElementById("num1").value);
-    let b = parseFloat(document.getElementById("num2").value);
+    let num1 = parseFloat(document.getElementById("num1").value);
+    let num2 = parseFloat(document.getElementById("num2").value);
 
     try {
-        if (b === 0) throw new Error("Cannot divide by zero!");
-        let result = a / b;
-        document.getElementById("result").innerText = "Division: " + result;
-        console.log("Division:", result);
+        // ตรวจสอบการหารด้วยศูนย์
+        if (num2 === 0) {
+            throw new Error("Cannot divide by zero");
+        }
+
+        let divisionResult = num1 / num2;
+        document.getElementById("result").innerText = `Division: ${divisionResult}`;
     } catch (error) {
-        document.getElementById("result").innerText = "Error: " + error.message;
-        console.error("Error:", error.message);
+        // จัดการข้อผิดพลาดเมื่อเกิดการหารด้วยศูนย์
+        document.getElementById("result").innerText = `Error: ${error.message}`;
+        console.error(error); // ใช้ console.error() สำหรับข้อผิดพลาด
     }
 }
