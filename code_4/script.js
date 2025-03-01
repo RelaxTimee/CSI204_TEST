@@ -46,7 +46,7 @@ function printNumbers() {
     function sortNumbers() {
         let numbers = [];
         for (let i = 0; i < 100; i++) {
-            numbers.push(Math.floor(Math.random() * 100) + 1);
+            numbers.push(Math.floor(Math.random() * 1000) + 1);
         }
         console.log("Before sorting:", numbers);
     

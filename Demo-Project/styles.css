@@ -92,6 +92,11 @@ button:hover {
     background-color: #ffcc00; /* Lighter Gold on Hover */
 }
 
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
 #prev-btn, #next-btn {
     width: 48%;
     margin: 10px 1%;
